@@ -28,7 +28,7 @@ async function displayFamilies() {
             const divBun = document.createElement('div');
             divBun.textContent = bunny.name;
             divBun.addEventListener('click', async () => {
-                
+                await deleteBunny(bunny.id);
                 await displayFamilies();
             });
             div2.append(divBun);

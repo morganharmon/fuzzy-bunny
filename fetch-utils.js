@@ -16,7 +16,7 @@ export async function getFamilies() {
 
 export async function deleteBunny(id) {
     // delete a single bunny using the id argument
-
+    const response = await client.from('fuzzy_bunnies').delete().eq('id', id);
     return checkError(response);
 }
 
