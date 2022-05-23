@@ -26,6 +26,11 @@ export async function createBunny(bunny) {
     return checkError(response);
 } 
 
+export async function createFamily(family) {
+    const response = await client.from('loving_families').insert(family);
+    return checkError(response);
+}
+
 // MARTHA STEWART (PRE-MADE) FUNCTIONS
 
 export async function checkAuth() {

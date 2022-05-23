@@ -1,1 +1,10 @@
 /* add home page styles here */
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    width: fit-content;
+    padding: 15px;
+    margin-left: 40%;
+}

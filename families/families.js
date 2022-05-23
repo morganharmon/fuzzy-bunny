@@ -14,7 +14,6 @@ async function displayFamilies() {
     const families = await getFamilies();
     // clear out the familiesEl
     familiesEl.textContent = '';
-    console.log(families);
     for (let family of families) {
         const div = document.createElement('div');
         const h3 = document.createElement('h3');
