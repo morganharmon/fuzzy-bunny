@@ -9,12 +9,22 @@ logoutButton.addEventListener('click', () => {
     logout();
 });
 
-function displayFamilies() {
+async function displayFamilies() {
     // fetch families from supabase
-
+    const families = await getFamilies();
     // clear out the familiesEl
-
+    familiesEl.textContent = '';
+    console.log(families);
     for (let family of families) {
+        const div = document.createElement('div');
+        const h3 = document.createElement('h3');
+        const div2 = document.createElement('div');
+        div.classList.add('family');
+        div2.classList.add('bunnies');
+        h3.textContent = family.name;
+        div.append(h3, div2);
+
+
         // create three elements for each family, one for the whole family, one to hold the name, and one to hold the bunnies
         // your HTML Element should look like this:
         // <div class="family">
@@ -30,10 +40,11 @@ function displayFamilies() {
         //    make an element with the css class 'bunny', and put the bunny's name in the text content
         //    add an event listener to the bunny el. On click, delete the bunny, then refetch and redisplay all families.
         // append this bunnyEl to the bunniesEl
+        familiesEl.append(div);
     }
 
     // append the bunniesEl and nameEl to the familyEl
-
     // append the familyEl to the familiesEl
 }
+
 displayFamilies();
