@@ -24,7 +24,15 @@ async function displayFamilies() {
         h3.textContent = family.name;
         div.append(h3, div2);
 
-
+        for (let bunny of family.fuzzy_bunnies) {
+            const divBun = document.createElement('div');
+            divBun.textContent = bunny.name;
+            divBun.addEventListener('click', async () => {
+                
+                await displayFamilies();
+            });
+            div2.append(divBun);
+        }
         // create three elements for each family, one for the whole family, one to hold the name, and one to hold the bunnies
         // your HTML Element should look like this:
         // <div class="family">
