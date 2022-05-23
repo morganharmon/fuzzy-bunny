@@ -22,7 +22,7 @@ export async function deleteBunny(id) {
 
 export async function createBunny(bunny) {
     // create a bunny using the bunny argument
-
+    const response = client.from('fuzzy_bunnies').insert(bunny);
     return checkError(response);
 }
 
