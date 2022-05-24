@@ -155,6 +155,7 @@ footer {
     margin: 10px;
     border: solid 1px black;
     padding: 10px;
+    height: 200px;
 }
 
 .family h3 {
@@ -164,6 +165,9 @@ footer {
 .bunnies {
     display: flex;
     flex-wrap: wrap;
+    border: solid 1px;
+    border-color: var(--color3);
+    height: 85%;
 }
 
 .bunny {
@@ -171,6 +175,7 @@ footer {
     padding: 3px;
     border: dotted 2px magenta;
     cursor: pointer;
+    height: fit-content;
 }
 
 .bunny-form {
