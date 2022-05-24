@@ -20,31 +20,32 @@ async function displayFamilies() {
         const div2 = document.createElement('div');
         div.classList.add('family');
         // give each div an id equal to its supabase id
-        div.id = family.id;
+        div2.id = family.id;
         div2.classList.add('bunnies');
         h3.textContent = family.name;
         div.append(h3, div2);
         // need to preventDefault on all drag events, as well as setData on the id on dragstart and getData on drop so it "remembers" which item has moved
-        div.addEventListener('drop', async (e) => {
+        div2.addEventListener('drop', async (e) => {
             e.preventDefault();
             const id = e.dataTransfer.getData('text/plain');
             const dropBunny = document.getElementById(id);
             e.target.append(dropBunny);
             dropBunny.classList.remove('hide');
-            // div.id is the new family_id that the bunny is moving to, id is the original id from the family div it started in
-            const mover = { family_id: div.id, id: id };
+            // div2.id is the new family_id that the bunny is moving to, id is the original id from the family div it started in
+            const mover = { family_id: div2.id, id: id };
             await moveBunny(mover);
         });
-        div.addEventListener('dragenter', (e) => {
+        div2.addEventListener('dragenter', (e) => {
             e.preventDefault();
         });
-        div.addEventListener('dragover', (e) => {
+        div2.addEventListener('dragover', (e) => {
             e.preventDefault();
         });
 
         for (let bunny of family.fuzzy_bunnies) {
             const divBun = document.createElement('div');
             divBun.textContent = bunny.name;
+            divBun.classList.add('bunny');
             divBun.addEventListener('click', async () => {
                 await deleteBunny(bunny.id);
                 await displayFamilies();
