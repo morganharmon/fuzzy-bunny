@@ -14,5 +14,5 @@ form.addEventListener('submit', async (e) => {
     const creation = await createFamily(family);
     if (creation) alert(`New loving family "${family.name}" added!`);
     form.reset();
-
+    window.location.href = '/';
 });

@@ -19,6 +19,7 @@ form.addEventListener('submit', async (e) => {
     const bunny = { name: name, family_id: familyId };
     await createBunny(bunny);
     form.reset();
+    window.location.href = '/';
 });
 
 window.addEventListener('load', async () => {
