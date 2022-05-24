@@ -44,6 +44,7 @@ async function displayFamilies() {
                 await deleteBunny(bunny.id);
                 await displayFamilies();
             });
+            // set to draggable and setData. Hide the object the instant it is clicked to drag, but setTimeout to 0 so that you can "pick up" the still visible object and drag it around, and the left behind object is then immediately set to hidden
             divBun.draggable = true;
             divBun.id = bunny.name;
             divBun.addEventListener('dragstart', (e) => {
