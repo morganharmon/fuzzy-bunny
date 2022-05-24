@@ -1,4 +1,4 @@
-import { checkAuth, createBunny, deleteBunny, getFamilies, logout } from '../fetch-utils.js';
+import { checkAuth, createBunny, deleteBunny, moveBunny, getFamilies, logout } from '../fetch-utils.js';
 
 checkAuth();
 
@@ -31,9 +31,9 @@ async function displayFamilies() {
             const dropBunny = document.getElementById(id);
             e.target.append(dropBunny);
             dropBunny.classList.remove('hide');
-            
-            await deleteBunny(id);
-            // await createBunny({ name: id, family_id: e.target.id });
+            // div.id is the new family_id that the bunny is moving to, id is the original id from the family div it started in
+            const mover = { family_id: div.id, id: id };
+            await moveBunny(mover);
         });
         div.addEventListener('dragenter', (e) => {
             e.preventDefault();
